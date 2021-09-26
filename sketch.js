@@ -71,7 +71,7 @@ function setup() {
 
   
   trex.setCollider("rectangle",0,0,trex.width,trex.height);
-  trex.debug = true
+
   
   score = 0;
   
@@ -158,10 +158,14 @@ function draw() {
 }
 
 function reset(){
-  
-
+  gameState=PLAY
+  gameOver.visible=false
+  restart.visible=false
+  obstaclesGroup.destroyEach()
+  cloudsGroup.destroyEach()
+  trex.changeAnimation("running",trex_running)
+  score=0
 }
-
 
 function spawnObstacles(){
  if (frameCount % 60 === 0){
